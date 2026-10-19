@@ -56,6 +56,14 @@
 \setlist{nosep}
 \setlist[itemize,enumerate]{leftmargin=0.5in}
 
+% Table and figure notes: same size as the body text (apa7 uses \small),
+% as in the APA student sample paper.
+\renewcommand{\figurenote}[1]{\par\normalsize\textit{\notelabel.} #1}
+\renewcommand{\tablenote}[1]{%
+  \begin{tablenotes}[para,flushleft]
+    \normalsize\textit{\notelabel.} #1
+  \end{tablenotes}}
+
 \usepackage{mwe} % provides example-image; remove once you use real figures
 \graphicspath{{figures/}}
 \hypersetup{hidelinks} % keep links clickable without colored boxes
