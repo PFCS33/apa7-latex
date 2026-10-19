@@ -53,7 +53,7 @@ After installing, **close and reopen your terminal** (on macOS, reopen VS Code t
 new commands are found.
 
 <details>
-<summary><b>Lightweight alternative (about 1 GB, more steps)</b></summary>
+<summary><b>Lightweight alternative (a few hundred MB, more steps)</b></summary>
 
 Use this if you are short on disk space. You install a small distribution and then add
 the few extra packages this template needs.
@@ -64,10 +64,11 @@ the few extra packages this template needs.
   sudo tlmgr update --self
   ```
   ```bash
-  sudo tlmgr install latexmk apa7 biblatex-apa biber
+  sudo tlmgr install latexmk apa7 biblatex biblatex-apa biber csquotes endfloat mwe scalerel threeparttable
   ```
-- **Windows: MiKTeX.** Install [MiKTeX](https://miktex.org/download). It downloads missing
-  packages automatically on the first build. `latexmk` also needs Perl: install
+- **Windows: MiKTeX.** Install [MiKTeX](https://miktex.org/download). On the first build it
+  offers to download missing packages: choose **Install** (and untick "Always show this
+  dialog" to stop it asking). `latexmk` also needs Perl: install
   [Strawberry Perl](https://strawberryperl.com/).
 - **Linux (Debian/Ubuntu):**
   ```bash
@@ -121,7 +122,9 @@ auxiliary files go to `build/`. To delete them, run `latexmk -c`.
 1. On GitHub, click **Code → Download ZIP**.
 2. On [Overleaf](https://www.overleaf.com/), click **New Project → Upload Project** and
    choose the ZIP file.
-3. Open **Menu** and check that **Compiler** is **pdfLaTeX** and **Main document** is
+3. If `.latexmkrc` appears in the Overleaf file list, delete it. Overleaf manages its own
+   build folder, and a custom one can break its PDF preview.
+4. Open **Menu** and check that **Compiler** is **pdfLaTeX** and **Main document** is
    `main.tex`. Overleaf detects biber automatically.
 
 ## Switching modes
