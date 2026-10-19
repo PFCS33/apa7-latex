@@ -1,0 +1,75 @@
+% =====================================================================
+%  APA 7 paper template (apa7 class + biblatex-apa)
+%  Edit the metadata below, then write your paper in sections/*.tex.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+%  Document mode -- change "stu" to switch the layout:
+%    stu  student paper (title page with course, professor, due date)
+%    man  manuscript for journal submission (running head, author note)
+%    jou  typeset like a printed APA journal article (two columns)
+%    doc  plain LaTeX document layout (single column)
+%
+%  floatsintext keeps figures and tables where you put them in the text.
+%  Remove it (stu/man only) to move all floats after the reference list.
+% ---------------------------------------------------------------------
+\documentclass[stu,12pt,letterpaper,floatsintext]{apa7}
+
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber]{biblatex}
+\addbibresource{refs.bib}
+
+\usepackage{mwe} % provides example-image; remove once you use real figures
+\graphicspath{{figures/}}
+
+% ---------------------------------------------------------------------
+%  Title page (student paper)
+% ---------------------------------------------------------------------
+\title{Title of Your Paper in Title Case}
+
+% One author:
+\authorsnames{First M. Last}
+\authorsaffiliations{{Department of Psychology, University Name}}
+
+% Several authors -- superscripts link each author to an affiliation:
+% \authorsnames[1,2]{First Author, Second Author}
+% \authorsaffiliations{{Department One, University One},{Department Two, University Two}}
+
+\course{PSYC 1000: Course Name}
+\professor{Dr. Professor Name}
+\duedate{Month Day, Year}
+
+% ---------------------------------------------------------------------
+%  Abstract and keywords
+%  Student papers often skip these; delete both lines if not required.
+% ---------------------------------------------------------------------
+\abstract{Write a single paragraph of 150--250 words that summarizes the
+purpose, method, main results, and conclusions of the paper.}
+\keywords{keyword one, keyword two, keyword three}
+
+% ---------------------------------------------------------------------
+%  Manuscript (man) and journal (jou) mode only
+% ---------------------------------------------------------------------
+% \shorttitle{SHORT TITLE FOR RUNNING HEAD}
+% \leftheader{Last}  % author last name(s), even-page header in jou mode
+% \authornote{
+%   \addORCIDlink{Author Name}{0000-0000-0000-0000}
+%
+%   Correspondence concerning this article should be addressed to
+%   Author Name, Department, University, Address. Email: name@example.edu
+% }
+
+\begin{document}
+\maketitle
+\input{sections/introduction}
+
+\input{sections/method}
+
+\input{sections/results}
+
+\input{sections/discussion}
+
+\printbibliography
+
+\end{document}

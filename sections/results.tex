@@ -1,0 +1,36 @@
+\section{Results}
+
+Refer to every figure and table in the text, as in
+Figure~\ref{fig:example} and Table~\ref{tab:descriptives}.
+
+% Figure: number and title go ABOVE the image; the note goes below.
+\begin{figure}[htbp]
+  \caption{Title of the Figure in Title Case}
+  \label{fig:example}
+  \centering
+  % Replace example-image with your file in figures/, e.g. {my-plot}
+  \includegraphics[width=0.6\linewidth]{example-image}
+  \figurenote{Explain abbreviations or give the source of the figure here.}
+\end{figure}
+
+% Table: use threeparttable so \tablenote lines up with the table width.
+\begin{table}[htbp]
+  \centering
+  \begin{threeparttable}
+    \caption{Descriptive Statistics for Study Variables}
+    \label{tab:descriptives}
+    \begin{tabular}{@{}lccc@{}}
+      \toprule
+      Variable   & \textit{n} & \textit{M} & \textit{SD} \\
+      \midrule
+      Variable A & 120 & 3.45 & 0.82 \\
+      Variable B & 120 & 2.91 & 1.04 \\
+      Variable C & 118 & 4.12 & 0.67 \\
+      \bottomrule
+    \end{tabular}
+    \tablenote{\textit{M} = mean; \textit{SD} = standard deviation.
+      Placeholder values for illustration only.}
+  \end{threeparttable}
+\end{table}
+
+Report your statistical results here.
