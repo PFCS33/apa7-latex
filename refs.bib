@@ -1,4 +1,6 @@
 % Sample references showing common APA reference types.
+% Titles are converted to sentence case: wrap acronyms and proper nouns in
+% braces to keep their capitals, e.g. {DOI} or {Purdue}.
 % Replace these with your own sources.
 
 % Journal article with DOI
@@ -11,6 +13,18 @@
   pages   = {45--67},
   date    = {2021},
   doi     = {10.1234/jps.2021.0123}
+}
+
+% Journal article with three authors and no DOI
+% (cited in text as "Kim et al., 2017")
+@article{kim2017,
+  author       = {Kim, Daniel H. and Patel, Priya and Okafor, Chinedu},
+  title        = {A placeholder title for an article without a {DOI}},
+  journaltitle = {Placeholder Review of Education},
+  volume       = {8},
+  number       = {2},
+  pages        = {19--36},
+  date         = {2017}
 }
 
 % Book
@@ -49,4 +63,11 @@
   type        = {Technical Report},
   number      = {7},
   date        = {2020}
+}
+
+% Web page by a group author with no date (date omitted, printed as "n.d.")
+@online{unesco,
+  author  = {{United Nations Educational, Scientific and Cultural Organization}},
+  title   = {A placeholder title for an undated web page},
+  url     = {https://www.unesco.org/}
 }
