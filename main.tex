@@ -12,8 +12,31 @@
 %
 %  floatsintext keeps figures and tables where you put them in the text.
 %  Remove it (stu/man only) to move all floats after the reference list.
+%
+%  nofontenc is required for XeLaTeX: the fonts below are set by fontspec.
 % ---------------------------------------------------------------------
-\documentclass[stu,12pt,letterpaper,floatsintext]{apa7}
+\documentclass[stu,12pt,letterpaper,floatsintext,nofontenc]{apa7}
+
+% ---------------------------------------------------------------------
+%  Font: Times New Roman 12 pt (requires XeLaTeX, set in .latexmkrc).
+%  If Times New Roman is not installed (e.g., on Linux or GitHub CI),
+%  fall back to TeX Gyre Termes, a free Times clone that ships with TeX Live.
+% ---------------------------------------------------------------------
+\usepackage{unicode-math} % also loads fontspec
+\IfFontExistsTF{Times New Roman}{%
+  \setmainfont{Times New Roman}%
+}{%
+  \PackageWarningNoLine{main}{Times New Roman not found, using TeX Gyre Termes}%
+  \setmainfont{texgyretermes}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic
+  ]%
+}
+% Times New Roman has no math symbols; use the matching Times-style math font.
+\setmathfont{texgyretermes-math.otf}
 
 \usepackage[american]{babel}
 \usepackage{csquotes}

@@ -1,5 +1,5 @@
 {
-  // Let .latexmkrc decide the build settings (pdfLaTeX, biber, build/ folder).
+  // Let .latexmkrc decide the build settings (XeLaTeX, biber, build/ folder).
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk (.latexmkrc)",

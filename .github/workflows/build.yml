@@ -17,6 +17,7 @@ jobs:
         uses: xu-cheng/latex-action@v4
         with:
           root_file: main.tex
+          latexmk_use_xelatex: true
 
       - name: Upload PDF
         uses: actions/upload-artifact@v7

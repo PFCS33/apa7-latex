@@ -17,7 +17,7 @@ It uses the [`apa7`](https://ctan.org/pkg/apa7) document class by Daniel A. Weis
 ├── sections/             # one file per section of the paper
 ├── figures/              # put your images here
 ├── refs.bib              # your references (BibTeX/biblatex format)
-├── .latexmkrc            # build settings (pdfLaTeX + biber, aux files in build/)
+├── .latexmkrc            # build settings (XeLaTeX + biber, aux files in build/)
 ├── .vscode/settings.json # one-click builds in VS Code
 └── .github/workflows/    # builds the PDF on GitHub
 ```
@@ -64,7 +64,7 @@ the few extra packages this template needs.
   sudo tlmgr update --self
   ```
   ```bash
-  sudo tlmgr install latexmk apa7 biblatex biblatex-apa biber csquotes endfloat mwe scalerel threeparttable
+  sudo tlmgr install latexmk apa7 biblatex biblatex-apa biber csquotes endfloat mwe scalerel threeparttable fontspec unicode-math tex-gyre tex-gyre-math
   ```
 - **Windows: MiKTeX.** Install [MiKTeX](https://miktex.org/download). On the first build it
   offers to download missing packages: choose **Install** (and untick "Always show this
@@ -72,7 +72,7 @@ the few extra packages this template needs.
   [Strawberry Perl](https://strawberryperl.com/).
 - **Linux (Debian/Ubuntu):**
   ```bash
-  sudo apt install latexmk biber texlive-latex-extra texlive-bibtex-extra texlive-publishers
+  sudo apt install latexmk biber texlive-xetex texlive-latex-extra texlive-bibtex-extra texlive-publishers tex-gyre
   ```
 
 If a build later fails with ``File `something.sty' not found``, a package is missing.
@@ -114,7 +114,7 @@ From the repository folder:
 latexmk main.tex
 ```
 
-`latexmk` runs pdfLaTeX and biber as many times as needed. The PDF is `main.pdf`;
+`latexmk` runs XeLaTeX and biber as many times as needed. The PDF is `main.pdf`;
 auxiliary files go to `build/`. To delete them, run `latexmk -c`.
 
 ## Use on Overleaf
@@ -124,8 +124,23 @@ auxiliary files go to `build/`. To delete them, run `latexmk -c`.
    choose the ZIP file.
 3. If `.latexmkrc` appears in the Overleaf file list, delete it. Overleaf manages its own
    build folder, and a custom one can break its PDF preview.
-4. Open **Menu** and check that **Compiler** is **pdfLaTeX** and **Main document** is
+4. Open **Menu** and set **Compiler** to **XeLaTeX** and **Main document** to
    `main.tex`. Overleaf detects biber automatically.
+
+## Font
+
+The paper is set in **Times New Roman 12 pt**, as in the APA student sample paper. This
+needs XeLaTeX (already set in `.latexmkrc`, VS Code, and the GitHub workflow), because
+pdfLaTeX cannot use fonts installed on your computer.
+
+Times New Roman comes with macOS and Windows. If it is not installed (Linux, GitHub
+Actions, possibly Overleaf), the build falls back to **TeX Gyre Termes**, a free Times
+clone, and the log shows `Times New Roman not found, using TeX Gyre Termes`. The two look
+almost identical, but if your instructor requires Times New Roman exactly, **submit the PDF
+you build on your own Mac or Windows computer**, not the one from GitHub Actions.
+
+To check which font a PDF uses, open it and look at **File → Properties → Fonts**, or run
+`pdffonts main.pdf`.
 
 ## Switching modes
 
