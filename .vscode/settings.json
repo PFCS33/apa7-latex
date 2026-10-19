@@ -1,0 +1,20 @@
+{
+  // Let .latexmkrc decide the build settings (pdfLaTeX, biber, build/ folder).
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (.latexmkrc)",
+      "tools": ["latexmk"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"]
+    }
+  ],
+  // main.pdf is written next to main.tex.
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab"
+}
