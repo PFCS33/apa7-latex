@@ -17,6 +17,7 @@ It uses the [`apa7`](https://ctan.org/pkg/apa7) document class by Daniel A. Weis
 ├── sections/             # one file per section of the paper
 ├── figures/              # put your images here
 ├── refs.bib              # your references (BibTeX/biblatex format)
+├── docs/                 # APA 7 student paper format reference
 ├── .latexmkrc            # build settings (XeLaTeX + biber, aux files in build/)
 ├── .vscode/settings.json # one-click builds in VS Code
 └── .github/workflows/    # builds the PDF on GitHub
@@ -170,6 +171,34 @@ require.
   `sections/results.tex` with its file name. Then remove `\usepackage{mwe}` from `main.tex`.
 - **Download the PDF built on GitHub:** open the **Actions** tab, click the latest run,
   and download **paper-pdf** under *Artifacts*.
+
+## APA writing checklist
+
+The template handles layout (title page, headings, spacing, references). These rules
+depend on what you write, so check them yourself before submitting. The full list of
+format rules is in [docs/apa7-student-format.md](docs/apa7-student-format.md).
+
+- [ ] No "Introduction" heading; the paper title is repeated above the first paragraph.
+- [ ] Abbreviations are spelled out the first time: student evaluation of teacher (SET).
+- [ ] Numbers zero to nine are words, 10 and above are numerals. Always use numerals for
+      percentages, ratios, dates, and scale values; always use words at the start of a
+      sentence, title, or heading.
+- [ ] Decimals have a leading zero only when the value can exceed 1 (0.34 *SD*, but
+      *r* = .45 and *p* < .05).
+- [ ] Direct quotations have a page number (p. 91) or range (pp. 8–9).
+- [ ] Quotations of 40 words or more use `\begin{quote}` without quotation marks, with
+      the citation after the final period.
+- [ ] Scale anchors are italic (*strongly agree*); verbatim test items are in quotation
+      marks.
+- [ ] Every table and figure is mentioned in the text and has a title in title case.
+- [ ] Every in-text citation has a reference entry, and every reference is cited.
+- [ ] A source you found in another source is cited as
+      `Seldin (1993, as cited in Pounder, 2007)`, and only the second source goes in
+      `refs.bib`.
+- [ ] Acronyms and proper nouns in `refs.bib` titles are wrapped in braces, such as `{DOI}`,
+      so they keep their capitals.
+- [ ] If your instructor asks for an abstract, uncomment `\abstract` and `\keywords` in
+      `main.tex`.
 
 ## Links
 
