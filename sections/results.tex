@@ -7,19 +7,18 @@ Figure~\ref{fig:example} and Table~\ref{tab:descriptives}.
 \begin{figure}[htbp]
   \caption{Title of the Figure in Title Case}
   \label{fig:example}
-  \centering
   % Replace example-image with your file in figures/, e.g. {my-plot}
-  \includegraphics[width=0.6\linewidth]{example-image}
+  {\centering\includegraphics[width=0.6\linewidth]{example-image}\par}
   \figurenote{Explain abbreviations or give the source of the figure here.}
 \end{figure}
 
-% Table: use threeparttable so \tablenote lines up with the table width.
+% Table: threeparttable makes the title and \tablenote match the table width;
+% tabular* stretches the table to the full text width.
 \begin{table}[htbp]
-  \centering
   \begin{threeparttable}
     \caption{Descriptive Statistics for Study Variables}
     \label{tab:descriptives}
-    \begin{tabular}{@{}lccc@{}}
+    \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccc@{}}
       \toprule
       Variable   & \textit{n} & \textit{M} & \textit{SD} \\
       \midrule
@@ -27,7 +26,7 @@ Figure~\ref{fig:example} and Table~\ref{tab:descriptives}.
       Variable B & 120 & 2.91 & 1.04 \\
       Variable C & 118 & 4.12 & 0.67 \\
       \bottomrule
-    \end{tabular}
+    \end{tabular*}
     \tablenote{\textit{M} = mean; \textit{SD} = standard deviation.
       Placeholder values for illustration only.}
   \end{threeparttable}
