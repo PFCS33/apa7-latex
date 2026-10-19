@@ -43,6 +43,19 @@
 \usepackage[style=apa,backend=biber]{biblatex}
 \addbibresource{refs.bib}
 
+% Block quotations (40+ words): indent 0.5 in on the left only, no extra space
+% above or below, as in the APA student sample paper.
+\renewenvironment{quote}
+  {\list{}{\leftmargin=0.5in \rightmargin=0pt
+           \topsep=0pt \partopsep=0pt \parsep=0pt}\item\relax}
+  {\endlist}
+
+% Bulleted and numbered lists: text starts 0.5 in from the margin, wrapped
+% lines align with the text, and no extra space between items.
+\usepackage{enumitem}
+\setlist{nosep}
+\setlist[itemize,enumerate]{leftmargin=0.5in}
+
 \usepackage{mwe} % provides example-image; remove once you use real figures
 \graphicspath{{figures/}}
 \hypersetup{hidelinks} % keep links clickable without colored boxes
